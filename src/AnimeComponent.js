@@ -15,9 +15,14 @@ export default class AnimeComponent extends Component {
     fetch(apiURL)
       .then(data => data.json())
       .then(data => {
-        console.log(data.anime);
         this.setState({ data: data.anime });
       });
+  }
+
+  handleImageClick(id) {
+    if (document.getElementById(id).hasAttribute("hidden"))
+      document.getElementById(id).removeAttribute("hidden");
+    else document.getElementById(id).setAttribute("hidden", true);
   }
 
   render() {
@@ -27,8 +32,27 @@ export default class AnimeComponent extends Component {
           {this.state.data != null ? (
             this.state.data.map(anime => {
               return (
-                <div key={anime.mal_id} className="col-md-3 anime">
-                  <img alt="Anime Image" src={anime.image_url} />
+                <div key={anime.mal_id} className="anime">
+                  <img
+                    alt="Anime"
+                    src={anime.image_url}
+                    onClick={() => this.handleImageClick(anime.mal_id)}
+                  />
+                  <div id={anime.mal_id} className="animeComponents" hidden>
+                    <div>{anime.synopsis}</div>
+                    <br />
+                    <div>
+                      <label>
+                        <b>
+                          <u>List of characters</u>
+                        </b>
+                      </label>
+                      <div>
+                        This api does not have list of characters
+                        (anime.characters is undefined).
+                      </div>
+                    </div>
+                  </div>
                 </div>
               );
             })
