@@ -1,4 +1,47 @@
-.App {
-  font-family: sans-serif;
+.container {
+  background-color: rgb(64, 169, 243);
+}
+
+header {
+  /* background-color: rgb(192, 72, 72); */
+  /* background-color: rgb(78, 72, 72); */
+  padding: 10px;
   text-align: center;
+  font-size: 18px;
+  color: #fff;
+}
+
+/* section {
+  display: -webkit-flex;
+  display: flex;
+}
+
+@media (max-width: 600px) {
+  section {
+    -webkit-flex-direction: column;
+    flex-direction: column;
+  }
+} */
+
+article {
+  -webkit-flex: 3;
+  -ms-flex: 3;
+  flex: 3;
+  background-color: #f1f1f1;
+  padding: 10px;
+}
+
+footer {
+  /* background-color: rgb(78, 72, 72); */
+  padding: 3px;
+  text-align: center;
+  color: #fff;
+}
+
+span {
+  text-align: center;
+}
+
+.anime {
+  padding: 10px;
 }
