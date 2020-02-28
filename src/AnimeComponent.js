@@ -11,12 +11,16 @@ export default class AnimeComponent extends Component {
     };
   }
 
-  componentDidMount() {
+  fetchData() {
     fetch(apiURL)
       .then(data => data.json())
       .then(data => {
         this.setState({ data: data.anime });
       });
+  }
+
+  componentDidMount() {
+    this.fetchData();
   }
 
   handleImageClick(id) {
